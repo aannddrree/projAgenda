@@ -8,14 +8,12 @@ angular.module('app.controllers', [])
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $http) {   
 
-    console.log('Inicio!')
-
     $scope.result = "";
     $http.get(API_URL)
       .success(function(data, status, headers,config){
         console.log('data success');
-        console.log(data); // for browser console
-        $scope.result = data; // for UI
+        console.log(data); 
+        $scope.result = data; 
       })
       .error(function(data, status, headers,config){
         console.log('data error');
@@ -24,7 +22,6 @@ function ($scope, $http) {
         things = result.data;
       });
     
-    console.log('Fim!')
 }])
    
 .controller('cadastroCtrl', ['$scope', '$http', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -32,8 +29,20 @@ function ($scope, $http) {
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $http) {
 
-    
-
+  $scope.save = function(cadastro) { 
+     $http.post(API_URL, cadastro)
+      .success(function(data, status, headers,config){
+        console.log('data success');
+        console.log(data); 
+        $scope.result = data; 
+      })
+      .error(function(data, status, headers,config){
+        console.log('data error');
+      })
+      .then(function(result){
+        things = result.data;
+      });
+  };
 }])
    
 .controller('sobreCtrl', ['$scope', '$http', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -43,4 +52,7 @@ function ($scope, $http) {
 
 
 }])
+
+
+
     

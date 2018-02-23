@@ -3,17 +3,17 @@
     <form id="cadastro-form1" class="list">
       <label class="item item-input" id="cadastro-input1">
         <span class="input-label">Descrição</span>
-        <input type="text" placeholder="">
+        <input type="text" placeholder="" ng-model="cadastro.descricao">
       </label>
       <label class="item item-input" id="cadastro-input2">
         <span class="input-label">Nome Pai</span>
-        <input type="text" placeholder="">
+        <input type="text" placeholder="" ng-model="cadastro.nomepai"> 
       </label>
       <label class="item item-input" id="cadastro-input3">
         <span class="input-label">Nome Mae</span>
-        <input type="text" placeholder="">
+        <input type="text" placeholder="" ng-model="cadastro.nomemae">
       </label>
     </form>
-    <button id="cadastro-button1" class="button button-positive button-block">Salvar</button>
+    <button id="cadastro-button1" ng-click="save(cadastro)" class="button button-positive button-block">Salvar</button>
   </ion-content>
 </ion-view>
