@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'api',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'projagendarest.urls'
@@ -122,3 +125,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 APPEND_SLASH = False
+
+CORS_ORIGIN_WHITELIST = (
+    '127.0.0.1',
+    '127.0.0.1:8000',
+    'localhost:8100'
+)
